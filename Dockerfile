@@ -62,13 +62,16 @@ RUN mkdir /opt/taudem && \
 ENV PATH /opt/taudem/:$PATH
 
 # Download and build RWD
+# The SHA in the following URL should be kept in sync with the latest commit on
+# the develop branch. If we simply used develop.tar.gz, this command would
+# not be executed (due to the cache) and we would not get the latest commits.
+# See https://ryanfb.github.io/etc/2015/07/29/git_strategies_for_docker.html#dockerfile-inside-git-repository
 RUN mkdir /opt/rwd/ && \
-    wget -qO- https://github.com/WikiWatershed/rapid-watershed-delineation/archive/develop.tar.gz \
+    wget -qO- https://github.com/WikiWatershed/rapid-watershed-delineation/archive/edcf497867355d039f721ecaa6ff663fde720f3b.tar.gz \
     | tar -xzC /opt/rwd --strip-components=1 && \
-    cd /opt/rwd && \
-    pip install --no-cache-dir -r requirements.txt
+    pip install --no-cache-dir -r /opt/rwd/requirements.txt && \
+    pip install --no-cache-dir -r /opt/rwd/src/api/requirements.txt
 
-RUN pip install -r /opt/rwd/src/api/requirements.txt
 # This line is needed for main.py to be able to find module rwd when
 # the rwd repo on the host is mounted to /opt/rwd for ease of development.
 ENV PYTHONPATH /opt/rwd/:$PYTHONPATH
