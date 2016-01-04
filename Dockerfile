@@ -67,3 +67,9 @@ RUN mkdir /opt/rwd/ && \
     | tar -xzC /opt/rwd --strip-components=1 && \
     cd /opt/rwd && \
     pip install --no-cache-dir -r requirements.txt
+
+RUN pip install -r /opt/rwd/src/api/requirements.txt
+# This line is needed for main.py to be able to find module rwd when
+# the rwd repo on the host is mounted to /opt/rwd for ease of development.
+ENV PYTHONPATH /opt/rwd/:$PYTHONPATH
+CMD ["python", "/opt/rwd/src/api/main.py"]
