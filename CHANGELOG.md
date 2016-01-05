@@ -1,7 +1,5 @@
 ## 0.1.0
 
-- Initial release
+### `5d315bf`
 
-## 0.0.1
-
-- Initial provisioning
+- Initial release.
