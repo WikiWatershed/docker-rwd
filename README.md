@@ -38,7 +38,6 @@ To create a release, run something along the lines of the following:
 ``` bash
 $ git flow release start 0.1.0
 $ vim CHANGELOG.md
-$ vim setup.py
 $ vim Dockerfile
 $ git commit -m "0.1.0"
 $ git flow release publish 0.1.0
