@@ -75,4 +75,5 @@ RUN mkdir /opt/rwd/ && \
 # This line is needed for main.py to be able to find module rwd when
 # the rwd repo on the host is mounted to /opt/rwd for ease of development.
 ENV PYTHONPATH /opt/rwd/:$PYTHONPATH
-CMD ["python", "/opt/rwd/src/api/main.py"]
+WORKDIR /opt/rwd/src/api
+ENTRYPOINT ["gunicorn", "-w", "4", "--log-syslog", "--bind", "0.0.0.0:5000", "main:app"]
