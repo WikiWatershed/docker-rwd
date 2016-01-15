@@ -67,7 +67,7 @@ ENV PATH /opt/taudem/:$PATH
 # not be executed (due to the cache) and we would not get the latest commits.
 # See https://ryanfb.github.io/etc/2015/07/29/git_strategies_for_docker.html#dockerfile-inside-git-repository
 RUN mkdir /opt/rwd/ && \
-    wget -qO- https://github.com/WikiWatershed/rapid-watershed-delineation/archive/0.2.0.tar.gz \
+    wget -qO- https://github.com/WikiWatershed/rapid-watershed-delineation/archive/0.2.1.tar.gz \
     | tar -xzC /opt/rwd --strip-components=1 && \
     pip install --no-cache-dir -r /opt/rwd/requirements.txt && \
     pip install --no-cache-dir -r /opt/rwd/src/api/requirements.txt
