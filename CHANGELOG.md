@@ -1,3 +1,7 @@
+## 0.2.2
+
+- Target RWD version 0.2.2
+
 ## 0.2.1
 
 - Target RWD version 0.2.1
