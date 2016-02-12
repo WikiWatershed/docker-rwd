@@ -1,3 +1,7 @@
+## 0.4.0
+
+- Target RWD version 0.3.0 [preserves outlet points]
+
 ## 0.2.2
 
 - Target RWD version 0.2.2
