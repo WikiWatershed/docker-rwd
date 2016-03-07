@@ -5,7 +5,7 @@ MAINTAINER Azavea <systems@azavea.com>
 ENV GDAL_VERSION 1.11.0
 ENV OPEN_MPI_SHORT_VERSION 1.8
 ENV OPEN_MPI_VERSION 1.8.1
-ENV TAUDEM_VERSION Develop
+ENV TAUDEM_VERSION 5.3.2
 ENV RWD_VERSION 0.3.0
 
 RUN apt-get update && apt-get install -y \
@@ -39,10 +39,11 @@ RUN wget -qO- https://www.open-mpi.org/software/ompi/v${OPEN_MPI_SHORT_VERSION}/
     && ldconfig
 
 # Download and build taudem
-# Remove the TestSuite directory because it contains large files
-# that we don't need.
-RUN wget -qO- https://github.com/dtarb/TauDEM/archive/${TAUDEM_VERSION}.tar.gz \
+# The release tags start with "v" but the folder inside the archive doesn't.
+RUN wget -qO- https://github.com/dtarb/TauDEM/archive/v${TAUDEM_VERSION}.tar.gz \
     | tar -xzC /usr/src \
+    # Remove the TestSuite directory because it contains large files
+    # that we don't need.
     && rm -rf /usr/src/TauDEM-${TAUDEM_VERSION}/TestSuite \
     && cd /usr/src/TauDEM-${TAUDEM_VERSION}/src \
     && make
