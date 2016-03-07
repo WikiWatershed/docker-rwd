@@ -47,6 +47,7 @@ RUN wget -qO- https://github.com/dtarb/TauDEM/archive/v${TAUDEM_VERSION}.tar.gz 
     && rm -rf /usr/src/TauDEM-${TAUDEM_VERSION}/TestSuite \
     && cd /usr/src/TauDEM-${TAUDEM_VERSION}/src \
     && make
+RUN ln -s /usr/src/TauDEM-${TAUDEM_VERSION} /opt/taudem
 ENV PATH /opt/taudem:$PATH
 
 RUN pip install --upgrade pip
