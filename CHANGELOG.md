@@ -1,4 +1,8 @@
-## 0.4.0
+## 1.0.0
+
+- Target RWD version 1.0.0 (simplified geometry and spatialite support)
+
+## 0.3.0
 
 - Target RWD version 0.3.0 [preserves outlet points]
 
