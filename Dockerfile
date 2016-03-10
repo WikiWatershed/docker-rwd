@@ -6,7 +6,7 @@ ENV GDAL_VERSION 1.11.0
 ENV OPEN_MPI_SHORT_VERSION 1.8
 ENV OPEN_MPI_VERSION 1.8.1
 ENV TAUDEM_VERSION 5.3.2
-ENV RWD_VERSION 1.0.0
+ENV RWD_VERSION 1.0.1
 
 RUN apt-get update && apt-get install -y \
     build-essential \
