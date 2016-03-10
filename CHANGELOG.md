@@ -1,3 +1,7 @@
+## 1.0.1
+
+- Target RWD version 1.0.1 (fixes invalid GeoJSON for some watersheds)
+
 ## 1.0.0
 
 - Target RWD version 1.0.0 (simplified geometry and spatialite support)
