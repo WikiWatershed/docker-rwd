@@ -1,3 +1,7 @@
+## 1.1.1
+
+- Target RWD version 1.1.0 (adds NHD data delineation endpoint)
+
 ## 1.0.1
 
 - Target RWD version 1.0.1 (fixes invalid GeoJSON for some watersheds)
