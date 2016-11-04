@@ -7,9 +7,9 @@ if [ -z "${TRAVIS_TAG}" ]; then
 else
   QUAY_TAG="${TRAVIS_TAG}"
 
-  docker tag -f "quay.io/wikiwatershed/rwd:${TRAVIS_COMMIT:0:7}" "quay.io/wikiwatershed/rwd:${QUAY_TAG}"
+  docker tag "quay.io/wikiwatershed/rwd:${TRAVIS_COMMIT:0:7}" "quay.io/wikiwatershed/rwd:${QUAY_TAG}"
 fi
 
 docker push "quay.io/wikiwatershed/rwd:${QUAY_TAG}"
-docker tag -f "quay.io/wikiwatershed/rwd:${QUAY_TAG}" "quay.io/wikiwatershed/rwd:latest"
+docker tag  "quay.io/wikiwatershed/rwd:${QUAY_TAG}" "quay.io/wikiwatershed/rwd:latest"
 docker push "quay.io/wikiwatershed/rwd:latest"
