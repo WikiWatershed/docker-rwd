@@ -52,11 +52,6 @@ ENV PATH /opt/taudem:$PATH
 
 RUN pip install --upgrade pip
 
-# Download and build RWD
-# The SHA in the following URL should be kept in sync with the latest commit on
-# the develop branch. If we simply used develop.tar.gz, this command would
-# not be executed (due to the cache) and we would not get the latest commits.
-# See https://ryanfb.github.io/etc/2015/07/29/git_strategies_for_docker.html#dockerfile-inside-git-repository
 RUN mkdir /opt/rwd && \
     wget -qO- https://github.com/WikiWatershed/rapid-watershed-delineation/archive/${RWD_VERSION}.tar.gz \
     | tar -xzC /opt/rwd --strip-components=1 && \
