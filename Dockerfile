@@ -2,10 +2,10 @@ FROM ubuntu:14.04
 
 MAINTAINER Azavea <systems@azavea.com>
 
-ENV GDAL_VERSION 1.11.0
+ENV GDAL_VERSION 2.1.0
 ENV OPEN_MPI_SHORT_VERSION 1.8
 ENV OPEN_MPI_VERSION 1.8.1
-ENV TAUDEM_VERSION 5.3.7
+ENV TAUDEM_VERSION 5.3.8
 ENV RWD_VERSION 1.1.1
 
 RUN apt-get update && apt-get install -y \
@@ -52,11 +52,6 @@ ENV PATH /opt/taudem:$PATH
 
 RUN pip install --upgrade pip
 
-# Download and build RWD
-# The SHA in the following URL should be kept in sync with the latest commit on
-# the develop branch. If we simply used develop.tar.gz, this command would
-# not be executed (due to the cache) and we would not get the latest commits.
-# See https://ryanfb.github.io/etc/2015/07/29/git_strategies_for_docker.html#dockerfile-inside-git-repository
 RUN mkdir /opt/rwd && \
     wget -qO- https://github.com/WikiWatershed/rapid-watershed-delineation/archive/${RWD_VERSION}.tar.gz \
     | tar -xzC /opt/rwd --strip-components=1 && \
