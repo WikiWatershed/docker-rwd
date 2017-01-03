@@ -24,4 +24,5 @@ docker run \
 -p 5000:5000 \
 --rm \
 $ARGS \
-docker-rwd
+docker-rwd \
+--reload
