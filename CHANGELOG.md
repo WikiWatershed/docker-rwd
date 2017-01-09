@@ -1,4 +1,7 @@
-## 1.1.1 
+## 1.2.0
+- Upgrade RWD to 1.2.0
+
+## 1.1.1
 - Target RWD version 1.1.1 (fixes input point properties projection, simplifies NHD shapes)
 
 ## 1.1.0
